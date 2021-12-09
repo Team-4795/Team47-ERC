@@ -1,0 +1,8 @@
+org/firstinspires/ftc/teamcode/Robot.java
+ org.firstinspires.ftc.teamcode.Robot
+org/firstinspires/ftc/teamcode/Auto.java
+ org.firstinspires.ftc.teamcode.Auto
+org/firstinspires/ftc/teamcode/TeleOpMode.java
+ org.firstinspires.ftc.teamcode.TeleOpMode
+org/firstinspires/ftc/teamcode/BuildConfig.java
+ org.firstinspires.ftc.teamcode.BuildConfig
