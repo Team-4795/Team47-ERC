@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ryanhuang/Downloads/FtcRobotController-master-2/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "/Users/ryanhuang/Documents/GitHub/Team47-ERC.nosync/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "/Users/ryanhuang/.gradle/caches/transforms-3/d76f35a08c08216004feed386d7db8d0/transformed/appcompat-1.2.0/res/values-en-rGB/values-en-rGB.xml",

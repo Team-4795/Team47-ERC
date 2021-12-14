@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 @TeleOp(name="main teleop", group = "group1")
 public class TeleOpMode extends Robot {
@@ -23,14 +24,21 @@ public class TeleOpMode extends Robot {
 
     @Override
     public void loop() {
-        drive(gamepad1.left_stick_y, gamepad1.right_stick_x);
+        //drive controls
+        drive(1, gamepad1.right_stick_x);
 
+        //arm controls
         if (gamepad1.right_bumper) {
             dunkArm();
         } else if (gamepad1.left_bumper) {
             resetArm();
         } else {
             stopArm();
+        }
+
+        //spin at left stick speed when both triggers are down
+        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1) {
+            celebrate(gamepad1.left_stick_y);
         }
     }
 

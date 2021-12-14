@@ -48,6 +48,13 @@ public class Robot extends OpMode {
         rightMotor.setPower(power - turn);
     }
 
+    public void celebrate(double power) {
+        double rate = power + power;
+
+        leftMotor.setPower(power);
+        rightMotor.setPower(power - rate);
+    }
+
     public void dunkArm() {
         bucketArm.setPower(0.5);
     }
