@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="auto", group = "group1")
-@Disabled
 public class Auto extends Robot {
     ElapsedTime runtime = new ElapsedTime();
 
