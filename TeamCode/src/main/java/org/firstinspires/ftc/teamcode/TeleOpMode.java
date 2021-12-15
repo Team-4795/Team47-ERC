@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -24,7 +25,7 @@ public class TeleOpMode extends Robot {
     @Override
     public void loop() {
         //drive controls
-        drive(1, gamepad1.right_stick_x);
+        drive(gamepad1.left_stick_y, gamepad1.right_stick_x);
 
         //arm controls
         if (gamepad1.right_bumper) {
