@@ -20,7 +20,6 @@ public class Robot extends OpMode {
         leftMotor = hardwareMap.dcMotor.get("leftMotor");
         rightMotor = hardwareMap.dcMotor.get("rightMotor");
         bucketArm = hardwareMap.dcMotor.get("bucketArm");
-        leftMotor.setDirection(DcMotorSimple.Direction.REVERSE); //maybe
     }
 
     @Override
