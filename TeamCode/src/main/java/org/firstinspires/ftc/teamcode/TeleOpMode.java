@@ -38,7 +38,7 @@ public class TeleOpMode extends Robot {
 
         //spin at left stick speed when both triggers are down
         if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1) {
-            celebrate(gamepad1.left_stick_y);
+            celebrate(1);
         }
     }
 
