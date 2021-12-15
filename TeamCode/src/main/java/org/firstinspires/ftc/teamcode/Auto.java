@@ -25,10 +25,10 @@ public class Auto extends Robot {
     @Override
     public void loop() {
         if(runtime.milliseconds() < 2000) {
-            drive(0.3, 0);
-        } else if (runtime.milliseconds() < 4000) {
-            dunkArm();
+            drive(-0.6, 0);
         } else if (runtime.milliseconds() < 6000) {
+            dunkArm();
+        } else if (runtime.milliseconds() < 7000) {
             drive(-0.4, 0);
             resetArm();
         } else {

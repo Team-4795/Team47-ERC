@@ -20,6 +20,7 @@ public class Robot extends OpMode {
         leftMotor = hardwareMap.dcMotor.get("leftMotor");
         rightMotor = hardwareMap.dcMotor.get("rightMotor");
         bucketArm = hardwareMap.dcMotor.get("bucketArm");
+        rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override
@@ -43,12 +44,8 @@ public class Robot extends OpMode {
     }
 
     public void drive(double power, double turn) {
-        leftMotor.setPower(power + turn);
-        rightMotor.setPower(power - turn);
-    }
-
-    public void dunkArm() {
-        bucketArm.setPower(0.5);
+        leftMotor.setPower(Math.pow(power - turn, 2) * Math.signum(power - turn));
+        rightMotor.setPower(Math.pow(power * 0.95 + turn, 2) * Math.signum(power + turn));
     }
 
     public void celebrate(double power) {
@@ -58,8 +55,12 @@ public class Robot extends OpMode {
         rightMotor.setPower(power - rate);
     }
 
+    public void dunkArm() {
+        bucketArm.setPower(0.7);
+    }
+
     public void resetArm() {
-        bucketArm.setPower(-0.2);
+        bucketArm.setPower(-.5);
     }
 
     public void stopArm() {

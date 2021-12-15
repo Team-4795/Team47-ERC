@@ -25,7 +25,7 @@ public class TeleOpMode extends Robot {
     @Override
     public void loop() {
         //drive controls
-        drive(gamepad1.left_stick_y, gamepad1.right_stick_x);
+        drive(gamepad1.left_stick_y / 1.5, gamepad1.right_stick_x);
 
         //arm controls
         if (gamepad1.right_bumper) {
