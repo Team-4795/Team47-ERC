@@ -56,12 +56,14 @@ public class Robot extends OpMode {
     public void celebrate() {
         ElapsedTime celTime = new ElapsedTime();
 
-        if (celTime.milliseconds() < 2000) {
-            leftMotor.setPower(1);
-            bucketArm.setPower(1);
-        } else if (celTime.milliseconds() < 4000) {
-            rightMotor.setPower(1);
-            bucketArm.setPower(-1);
+        if (celTime.milliseconds() < 3000) {
+            rightMotor.setPower(-0.7);
+            leftMotor.setPower(0.7);
+            bucketArm.setPower(0.7);
+        } else if (celTime.milliseconds() < 6000) {
+            rightMotor.setPower(0.7);
+            leftMotor.setPower(-0.7);
+            bucketArm.setPower(-0.7);
         } else {
             leftMotor.setPower(0);
             leftMotor.setPower(0);
