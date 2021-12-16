@@ -27,6 +27,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="22FXEbhvxSDr4JgYeJOxV5TwCdz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />

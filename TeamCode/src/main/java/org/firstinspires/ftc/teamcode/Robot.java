@@ -6,6 +6,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class Robot extends OpMode {
+
+    ElapsedTime celTime = new ElapsedTime();
+
     //drivebase
     private DcMotor leftMotor;
     private DcMotor rightMotor;
@@ -54,22 +57,22 @@ public class Robot extends OpMode {
     }
 
     public void celebrate() {
-        ElapsedTime celTime = new ElapsedTime();
-
-        if (celTime.milliseconds() < 3000) {
-            rightMotor.setPower(-0.7);
-            leftMotor.setPower(0.7);
-            bucketArm.setPower(0.7);
-        } else if (celTime.milliseconds() < 6000) {
-            rightMotor.setPower(0.7);
-            leftMotor.setPower(-0.7);
-            bucketArm.setPower(-0.7);
-        } else {
-            leftMotor.setPower(0);
-            leftMotor.setPower(0);
-            bucketArm.setPower(0);
+        while (celTime.milliseconds() < 6005) {
+            if (celTime.milliseconds() < 3000) {
+                rightMotor.setPower(1);
+                leftMotor.setPower(1);
+                bucketArm.setPower(1);
+            } else if (celTime.milliseconds() < 6000) {
+                rightMotor.setPower(1);
+                leftMotor.setPower(1);
+                bucketArm.setPower(1);
+            } else {
+                celTime.reset();
+                leftMotor.setPower(0);
+                leftMotor.setPower(0);
+                bucketArm.setPower(0);
+            }
         }
-
     }
 
     public void dunkArm() {

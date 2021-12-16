@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp(name="main teleop", group = "group1")
 public class TeleOpMode extends Robot {
     ElapsedTime runtime = new ElapsedTime();
+    ElapsedTime armTime = new ElapsedTime();
 
     public void init() {
         super.init();
@@ -50,15 +51,16 @@ public class TeleOpMode extends Robot {
         }
 
         if (gamepad1.b) {
-            ElapsedTime time = new ElapsedTime();
+            while (armTime.milliseconds() < 6005) {
 
-            if (time.milliseconds() < 4000) {
-                dunkArm();
-            } else if (time.milliseconds() < 8000) {
-                resetArm();
-            } else {
-                stopArm();
-                time.reset();
+                if (armTime.milliseconds() < 3000) {
+                    dunkArm();
+                } else if (armTime.milliseconds() < 6000) {
+                    resetArm();
+                } else {
+                    stopArm();
+                    armTime.reset();
+                }
             }
         }
 
