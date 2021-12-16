@@ -63,8 +63,8 @@ public class TeleOpMode extends Robot {
                 } else if (armTime.milliseconds() < 3000) {
                     resetArm();
                 } else {
-                    armTime.reset();
                     stopArm();
+                    break;
                 }
             }
         }

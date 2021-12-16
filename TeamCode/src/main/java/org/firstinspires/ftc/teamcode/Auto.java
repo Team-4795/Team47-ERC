@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="auto", group = "group1")
@@ -25,6 +24,7 @@ public class Auto extends Robot {
     @Override
     public void loop() {
         if(runtime.milliseconds() < 2000) {
+            //THIS MIGHT BE A PROBLEM
             drive(-0.6, 0);
         } else if (runtime.milliseconds() < 6000) {
             dunkArm();
