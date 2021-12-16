@@ -73,11 +73,11 @@ public class Robot extends OpMode {
     }
 
     public void dunkArm() {
-        bucketArm.setPower(0.7);
+        bucketArm.setPower(0.1);
     }
 
     public void resetArm() {
-        bucketArm.setPower(-.5);
+        bucketArm.setPower(-1);
     }
 
     public void stopArm() {
