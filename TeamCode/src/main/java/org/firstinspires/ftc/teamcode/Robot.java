@@ -44,15 +44,30 @@ public class Robot extends OpMode {
     }
 
     public void drive(double power, double turn) {
-        leftMotor.setPower(Math.pow(power - turn * 0.7, 2) * Math.signum(power - turn * 0.75));
-        rightMotor.setPower(Math.pow(power * 0.95 + turn * 0.7, 2) * Math.signum(power + turn * 0.75));
+        leftMotor.setPower(Math.pow(power - turn * 0.7, 2) * Math.signum(power - turn * 0.7));
+        rightMotor.setPower(Math.pow(power * 0.95 + turn * 0.7, 2) * Math.signum(power + turn * 0.7));
     }
 
-    public void celebrate(double power) {
-        double rate = power + power;
+    public void slowDrive(double power, double turn) {
+        leftMotor.setPower(Math.pow(power * 0.3 - turn * 0.3, 2) * Math.signum(power - turn));
+        rightMotor.setPower(Math.pow(power * 0.25 + turn * 0.3, 2) * Math.signum(power + turn));
+    }
 
-        leftMotor.setPower(power);
-        rightMotor.setPower(power - rate);
+    public void celebrate() {
+        ElapsedTime celTime = new ElapsedTime();
+
+        if (celTime.milliseconds() < 2000) {
+            leftMotor.setPower(1);
+            bucketArm.setPower(1);
+        } else if (celTime.milliseconds() < 4000) {
+            rightMotor.setPower(1);
+            bucketArm.setPower(-1);
+        } else {
+            leftMotor.setPower(0);
+            leftMotor.setPower(0);
+            bucketArm.setPower(0);
+        }
+
     }
 
     public void dunkArm() {

@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -24,12 +23,22 @@ public class TeleOpMode extends Robot {
 
     @Override
     public void loop() {
-        //drive controls
-        double x = gamepad1.left_stick_y / 1.5;
-        if(Math.abs(x) < 0.05) x = 0;
-        double y = gamepad1.right_stick_x / 1.5;
-        if(Math.abs(x) < 0.05) x = 0;
-        drive(x, y);
+
+        if (gamepad1.right_trigger > 0.5) {
+            //drive controls
+            double x = gamepad1.left_stick_y / 1.5;
+            if(Math.abs(x) < 0.05) x = 0;
+            double y = gamepad1.right_stick_x / 1.5;
+            if(Math.abs(x) < 0.05) x = 0;
+            slowDrive(x, y);
+        } else {
+            //drive controls
+            double x = gamepad1.left_stick_y / 1.5;
+            if(Math.abs(x) < 0.05) x = 0;
+            double y = gamepad1.right_stick_x / 1.5;
+            if(Math.abs(x) < 0.05) x = 0;
+            drive(x, y);
+        }
 
         //arm controls
         if (gamepad1.right_bumper) {
@@ -40,12 +49,12 @@ public class TeleOpMode extends Robot {
             stopArm();
         }
 
-        if (gamepad1.right_trigger > .5) {
+        if (gamepad1.b) {
             ElapsedTime time = new ElapsedTime();
 
-            if (time.milliseconds() < 3000) {
+            if (time.milliseconds() < 4000) {
                 dunkArm();
-            } else if (time.milliseconds() < 6000) {
+            } else if (time.milliseconds() < 8000) {
                 resetArm();
             } else {
                 stopArm();
@@ -53,9 +62,8 @@ public class TeleOpMode extends Robot {
             }
         }
 
-        //spin at left stick speed when both triggers are down
-        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1) {
-            celebrate(1);
+        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1 && gamepad1.left_bumper && gamepad1.right_bumper) {
+            celebrate();
         }
     }
 
