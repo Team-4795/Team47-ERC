@@ -40,6 +40,19 @@ public class TeleOpMode extends Robot {
             stopArm();
         }
 
+        if (gamepad1.right_trigger == 1) {
+            ElapsedTime time = new ElapsedTime();
+
+            if (time.milliseconds() < 3000) {
+                dunkArm();
+            } else if (time.milliseconds() < 6000) {
+                resetArm();
+            } else {
+                stopArm();
+                time.reset();
+            }
+        }
+
         //spin at left stick speed when both triggers are down
         if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1) {
             celebrate(1);
