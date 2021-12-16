@@ -57,6 +57,7 @@ public class Robot extends OpMode {
     }
 
     public void celebrate() {
+        celTime.reset();
         while (celTime.milliseconds() < 6005) {
             if (celTime.milliseconds() < 3000) {
                 rightMotor.setPower(1);
@@ -67,7 +68,6 @@ public class Robot extends OpMode {
                 leftMotor.setPower(1);
                 bucketArm.setPower(1);
             } else {
-                celTime.reset();
                 leftMotor.setPower(0);
                 leftMotor.setPower(0);
                 bucketArm.setPower(0);
@@ -76,7 +76,7 @@ public class Robot extends OpMode {
     }
 
     public void dunkArm() {
-        bucketArm.setPower(0.1);
+        bucketArm.setPower(1);
     }
 
     public void resetArm() {

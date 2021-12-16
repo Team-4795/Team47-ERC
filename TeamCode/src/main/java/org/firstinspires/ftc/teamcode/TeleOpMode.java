@@ -51,6 +51,7 @@ public class TeleOpMode extends Robot {
         }
 
         if (gamepad1.b) {
+            armTime.reset();
             while (armTime.milliseconds() < 6005) {
 
                 if (armTime.milliseconds() < 3000) {
@@ -59,7 +60,6 @@ public class TeleOpMode extends Robot {
                     resetArm();
                 } else {
                     stopArm();
-                    armTime.reset();
                 }
             }
         }
