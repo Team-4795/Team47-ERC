@@ -25,6 +25,10 @@ public class TeleOpMode extends Robot {
     @Override
     public void loop() {
 
+        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1 && gamepad1.left_bumper && gamepad1.right_bumper) {
+            celebrate();
+        }
+
         if (gamepad1.right_trigger > 0.5) {
             //drive controls
             double x = gamepad1.left_stick_y / 1.5;
@@ -41,10 +45,6 @@ public class TeleOpMode extends Robot {
             drive(x, y);
         }
 
-        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1 && gamepad1.left_bumper && gamepad1.right_bumper) {
-            celebrate();
-        }
-
         //arm controls
         if (gamepad1.right_bumper) {
             dunkArm();
@@ -58,9 +58,9 @@ public class TeleOpMode extends Robot {
             armTime.reset();
             while (armTime.milliseconds() < 6005) {
 
-                if (armTime.milliseconds() < 3000) {
+                if (armTime.milliseconds() < 1500) {
                     dunkArm();
-                } else if (armTime.milliseconds() < 6000) {
+                } else if (armTime.milliseconds() < 3000) {
                     resetArm();
                 } else {
                     armTime.reset();
