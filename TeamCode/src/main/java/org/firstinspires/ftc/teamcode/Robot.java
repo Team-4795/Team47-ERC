@@ -44,8 +44,8 @@ public class Robot extends OpMode {
     }
 
     public void drive(double power, double turn) {
-        leftMotor.setPower(Math.pow(power - turn, 2) * Math.signum(power - turn));
-        rightMotor.setPower(Math.pow(power * 0.95 + turn, 2) * Math.signum(power + turn));
+        leftMotor.setPower(Math.pow(power - turn * 0.7, 2) * Math.signum(power - turn * 0.75));
+        rightMotor.setPower(Math.pow(power * 0.95 + turn * 0.7, 2) * Math.signum(power + turn * 0.75));
     }
 
     public void celebrate(double power) {
