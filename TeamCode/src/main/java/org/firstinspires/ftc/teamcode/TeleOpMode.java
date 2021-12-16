@@ -40,7 +40,7 @@ public class TeleOpMode extends Robot {
             stopArm();
         }
 
-        if (gamepad1.right_trigger == 1) {
+        if (gamepad1.right_trigger > .5) {
             ElapsedTime time = new ElapsedTime();
 
             if (time.milliseconds() < 3000) {
