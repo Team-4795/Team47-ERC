@@ -41,6 +41,10 @@ public class TeleOpMode extends Robot {
             drive(x, y);
         }
 
+        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1 && gamepad1.left_bumper && gamepad1.right_bumper) {
+            celebrate();
+        }
+
         //arm controls
         if (gamepad1.right_bumper) {
             dunkArm();
@@ -59,13 +63,10 @@ public class TeleOpMode extends Robot {
                 } else if (armTime.milliseconds() < 6000) {
                     resetArm();
                 } else {
+                    armTime.reset();
                     stopArm();
                 }
             }
-        }
-
-        if (gamepad1.right_trigger == 1 && gamepad1.left_trigger == 1 && gamepad1.left_bumper && gamepad1.right_bumper) {
-            celebrate();
         }
     }
 

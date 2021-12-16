@@ -68,6 +68,7 @@ public class Robot extends OpMode {
                 leftMotor.setPower(1);
                 bucketArm.setPower(1);
             } else {
+                celTime.reset();
                 leftMotor.setPower(0);
                 leftMotor.setPower(0);
                 bucketArm.setPower(0);
